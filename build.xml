@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<project name="Hybris" basedir="." default="deploy">
+	<property file="build.properties"/>
+	<target name="deploy">
+		<copy file="${target.dir}/${fileJar}" todir="${tomcat.deployment}"/>
+		<antcall target="start"/>
+	</target>
+	<target name="start">
+		<exec executable="${tomcat.bin}/startup.bat"/>
+	</target>
+	<target name="stop">
+		<exec executable="${tomcat.bin}/shutdown.bat"/>
+	</target>
+</project>
